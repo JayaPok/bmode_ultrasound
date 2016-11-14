@@ -2,7 +2,7 @@ import numpy as np
 
 
 def read_RF(filename):
-    rf_data = np.array(np.fromfile(filename, dtype='uint16', count=-1, sep=""))
+    rf_data = np.fromfile(filename, dtype='int16', count=-1)
     return rf_data
 
 
