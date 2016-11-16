@@ -1,9 +1,15 @@
-from B_mode_image_creation import envelope_detection
+from B_mode_image_creation import array_filtering
+from read_RFdata import RF_bars, read_RF
 import numpy as np
+from scipy import signal
 
 
-def test_envelope_detection():
-    data_a = [np.array([1, -2, 3, -4, 5]), np.array([6, -7, -8, 9, -10]), np.array([11, -12, 13, -14, -15])]
-    a = envelope_detection(data_a, 3)
-    assert np.any(a) == np.any([np.array([1.5, 2, 3, 4, 4.5]), np.array([6.5, 7, 8, 9, 9.5]),
-                                np.array([11.5, 12, 13, 14, 14.5])])
+def test_array_filtering():
+    a = read_RF('rfdat.bin')
+    b = RF_bars(a, 256)
+    c = b[0:2]
+    data_filtered = array_filtering(c)
+    assert len(signal.find_peaks_cwt(data_filtered[:, 0], np.arange(1, 500))) < len(
+        signal.find_peaks_cwt(c[0], np.arange(1, 500)))
+    assert len(signal.find_peaks_cwt(data_filtered[:, 1], np.arange(1, 500))) < len(
+        signal.find_peaks_cwt(c[1], np.arange(1, 500)))
