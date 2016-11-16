@@ -1,16 +1,13 @@
 import numpy as np
+from statsmodels.nonparametric.smoothers_lowess import lowess
 
 
-def envelope_detection(RF_array, n):
-    RF_array_enveloped = np.empty([len(RF_array), len(RF_array[0])])
-    RF_array_rectified = np.absolute(RF_array)
-    for i in range(len(RF_array_rectified)):
-        for j in range(len(RF_array_rectified[0])):
-            if j < ((n-1) / 2):
-                mov_avg = np.mean(RF_array_rectified[i][:(j + 1 + ((n-1) / 2))])
-            elif j > (len(RF_array[0]) - 1 - ((n-1)/2)):
-                mov_avg = np.mean(RF_array_rectified[i][j-2:])
-            else:
-                mov_avg = np.mean(RF_array_rectified[i][j - 2:j + 2])
-            RF_array_enveloped[i][j] = mov_avg
-    return (RF_array_enveloped)
+def array_filtering(RF_array):
+    RF_array_abs = np.absolute(RF_array)
+    RF_array_T = np.transpose(RF_array_abs)
+    RF_array_filtered = np.empty([len(RF_array_T), len(RF_array_T[0])])
+    x_data = np.array(range(len(RF_array_T)))
+    for i in range(len(RF_array_T[0])):
+        filtered = lowess(RF_array_T[:, i], x_data, frac=0.05)
+        RF_array_filtered[:, i] = filtered[:, 1]
+    return RF_array_filtered
