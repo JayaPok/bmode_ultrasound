@@ -17,10 +17,10 @@ def test_read_JSON_data_missing_file():
 
 
 def test_read_JSON_data_missing_data():
-    with pytest.raises (TypeError):
+    with pytest.raises(TypeError):
         read_JSON_data('bmode_missing_value.json')
 
 
 def test_read_JSON_data_wrong_data_type():
-    with pytest.raises (ValueError):
+    with pytest.raises(ValueError):
         read_JSON_data('bmode_string_value.json')
