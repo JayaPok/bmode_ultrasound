@@ -4,13 +4,15 @@ import matplotlib.pyplot as plt
 def image_plot(B_mode_array, beam_spacing, axial_samples, num_beams, f_s, c):
     lateral_distance = beam_spacing * num_beams
     depth_distance = c * axial_samples / f_s / 2
-    plt.imshow(B_mode_array, aspect='auto', extent=[0, lateral_distance, depth_distance, 0])
+    extent_array=[0, lateral_distance, depth_distance,0]
+    plt.imshow(B_mode_array, aspect='auto', extent=extent_array, cmap='Greys_r')
     plt.show()
+    return extent_array
 
 
 def image_save(image_filename, B_mode_array):
     try:
-        plt.imsave(image_filename, B_mode_array)
+        plt.imsave(image_filename, B_mode_array, cmap='Greys_r')
     except IOError:
         print('There is no more space, please delete something on your hard-drive')
         raise IOError
