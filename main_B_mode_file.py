@@ -15,7 +15,7 @@ if __name__ == "__main__":
                         format='%(asctime)s %(message)s')
 
     c, fs, axial_samples, beam_spacing, num_beams = read_JSON_data(JSON_filename)
-    rf_data = read_RF(RF_data_filename)
+    rf_data = read_RF(RF_data_filename, axial_samples, num_beams)
     rf_data_bars = RF_bars(rf_data, num_beams)
     rf_array_filtered = array_filtering(rf_data_bars)
     log_rf_array_filtered = logarithmic_compression(rf_array_filtered)

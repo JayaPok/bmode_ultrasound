@@ -1,5 +1,5 @@
 numpy>=1.11.1
-pytest>=2.8.7
+pytest-cov>=2.8.7
 statsmodels
 skimage
 matplotlib
