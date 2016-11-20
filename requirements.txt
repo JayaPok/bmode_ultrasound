@@ -1,5 +1,5 @@
-matplotlib
 os
+matplotlib
 scipy>=0.16.1
 scikit-image
 argparse>=1.4.0
