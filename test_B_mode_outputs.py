@@ -8,10 +8,9 @@ B_mode_array = np.absolute(np.empty([5, 5]))
 
 
 def test_image_plot():
-    B_mode_array = np.absolute(np.empty([5, 5]))
     output = image_plot(B_mode_array, 10, 100, 5, 100, 1000)
     plt.close()
-    assert output == [0, 50, 500,0]
+    assert output == [0, 50, 500, 0]
 
 
 
