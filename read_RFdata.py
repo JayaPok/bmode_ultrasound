@@ -1,4 +1,5 @@
 import numpy as np
+import logging
 
 class MissingDataError(Exception):
 	pass
@@ -11,6 +12,7 @@ def read_RF(filename, axial_samples, num_beams):
     	f = open(filename, "rb")
     except FileNotFoundError:
         print("File was not found")
+        logging.error("File was not found")
         raise FileNotFoundError
     
     try:
@@ -23,14 +25,18 @@ def read_RF(filename, axial_samples, num_beams):
         	raise NotBinaryFileError
         if axial_samples*num_beams != len(rf_data):
             raise MissingDataError
+        logging.debug("RF_data has been split into rows")
         return rf_data
     except MissingDataError:
     	print('Not enough data values available.')
+    	logging.error("Not enough data values available.")
     	raise
     except NotBinaryFileError:
     	print('Not a binary file, please input a binary file.')
+    	logging.error("Not a binary file, please input a binary file.")
     	raise
 
 def RF_bars(rf_data, num_beams):
     rfdata_bars = np.split(rf_data, num_beams)
+    logging.debug("RF_data has been split into rows")
     return rfdata_bars

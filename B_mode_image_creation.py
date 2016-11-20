@@ -1,6 +1,7 @@
 import numpy as np
 from statsmodels.nonparametric.smoothers_lowess import lowess
 from skimage import data, img_as_float, exposure
+import logging
 
 
 def array_filtering(RF_array):
@@ -11,6 +12,7 @@ def array_filtering(RF_array):
     for i in range(len(RF_array_T[0])):
         filtered = lowess(RF_array_T[:, i], x_data, frac=0.05)
         RF_array_filtered[:, i] = filtered[:, 1]
+    logging.debug("RF_data has undergone envelope detection")
     return RF_array_filtered
 
 
@@ -18,15 +20,17 @@ def logarithmic_compression(RF_array_filtered):
     log_RFarray_filtered = np.empty([len(RF_array_filtered), len(RF_array_filtered[0])])
     for i in range(len(RF_array_filtered[0])):
         log_RFarray_filtered[:, i] = np.log10(RF_array_filtered[:, i])
+    logging.debug("RF_data has undergone logarithmic compression")
     return log_RFarray_filtered
+
 
 def equalization(log_RFarray_filtered):
     RFarray_equalized = np.empty([len(log_RFarray_filtered), len(log_RFarray_filtered[0])])
     for i in range(len(log_RFarray_filtered[0])-1):
-    	ind = np.where(~np.isnan(log_RFarray_filtered[:, i]))[0]
-    	first, last = ind[0], ind[-1]
-    	log_RFarray_filtered[:, i][:first] = log_RFarray_filtered[:, i][first]
-    	log_RFarray_filtered[:, i][last + 1:] = log_RFarray_filtered[:, i][last]
-    	RFarray_equalized[:, i] = exposure.equalize_hist(log_RFarray_filtered[:, i])
+        ind = np.where(~np.isnan(log_RFarray_filtered[:, i]))[0]
+        first, last = ind[0], ind[-1]
+        log_RFarray_filtered[:, i][:first] = log_RFarray_filtered[:, i][first]
+        log_RFarray_filtered[:, i][last + 1:] = log_RFarray_filtered[:, i][last]
+        RFarray_equalized[:, i] = exposure.equalize_hist(log_RFarray_filtered[:, i])
+    logging.debug("RF_data has undergone logarithmic compression")
     return RFarray_equalized
-
