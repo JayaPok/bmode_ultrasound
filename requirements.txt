@@ -1,4 +1,4 @@
-skimage
+skimage>=0.13dev
 argparse>=1.4.0
 numpy>=1.10.4
 pytest>=2.8.7
