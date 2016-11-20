@@ -1,7 +1,9 @@
-numpy>=1.11.1
-pytest>=2.8.7
-statsmodels
-skimage
 matplotlib
-logging
-argparse
+os
+scipy>=0.16.1
+scikit-image
+argparse>=1.4.0
+numpy>=1.10.4
+pytest>=2.8.7
+pytest-cov>=2.2.0
+statsmodels

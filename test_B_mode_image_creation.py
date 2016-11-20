@@ -5,7 +5,7 @@ from scipy import signal
 
 
 def test_array_filtering():
-    a = read_RF('rfdat.bin')
+    a = read_RF('rfdat.bin', 1556, 256)
     b = RF_bars(a, 256)
     c = b[0:2]
     data_filtered = array_filtering(c)
