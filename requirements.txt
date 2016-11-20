@@ -1,3 +1,5 @@
+logging
+scipy>=0.16.1
 scikit-image
 argparse>=1.4.0
 numpy>=1.10.4
