@@ -12,6 +12,7 @@ def test_image_plot():
     plt.close()
     assert output == [0, 50, 500, 0]
 
+
 def test_image_save():
     assert not os.path.isfile('bmode.png')
     image_save('bmode.png', B_mode_array)

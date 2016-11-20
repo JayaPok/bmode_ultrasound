@@ -3,7 +3,8 @@ import pytest
 
 
 def test_read_JSON_data():
-    c, fs, axial_samples, beam_spacing, num_beams = read_JSON_data('bmode.json')
+    c, fs, axial_samples, beam_spacing, num_beams = \
+        read_JSON_data('bmode.json')
     assert c == 1540
     assert fs == 40000000
     assert axial_samples == 1556

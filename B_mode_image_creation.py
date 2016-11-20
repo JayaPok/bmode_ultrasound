@@ -17,7 +17,8 @@ def array_filtering(RF_array):
 
 
 def logarithmic_compression(RF_array_filtered):
-    log_RFarray_filtered = np.empty([len(RF_array_filtered), len(RF_array_filtered[0])])
+    log_RFarray_filtered = np.empty([len(RF_array_filtered),
+                                     len(RF_array_filtered[0])])
     for i in range(len(RF_array_filtered[0])):
         log_RFarray_filtered[:, i] = np.log10(RF_array_filtered[:, i])
     logging.debug("RF_data has undergone logarithmic compression")
@@ -25,12 +26,16 @@ def logarithmic_compression(RF_array_filtered):
 
 
 def equalization(log_RFarray_filtered):
-    RFarray_equalized = np.empty([len(log_RFarray_filtered), len(log_RFarray_filtered[0])])
+    RFarray_equalized = np.empty([len(log_RFarray_filtered),
+                                  len(log_RFarray_filtered[0])])
     for i in range(len(log_RFarray_filtered[0])-1):
         ind = np.where(~np.isnan(log_RFarray_filtered[:, i]))[0]
         first, last = ind[0], ind[-1]
-        log_RFarray_filtered[:, i][:first] = log_RFarray_filtered[:, i][first]
-        log_RFarray_filtered[:, i][last + 1:] = log_RFarray_filtered[:, i][last]
-        RFarray_equalized[:, i] = exposure.equalize_hist(log_RFarray_filtered[:, i])
+        log_RFarray_filtered[:, i][:first] =\
+            log_RFarray_filtered[:, i][first]
+        log_RFarray_filtered[:, i][last + 1:] =\
+            log_RFarray_filtered[:, i][last]
+        RFarray_equalized[:, i] =\
+            exposure.equalize_hist(log_RFarray_filtered[:, i])
     logging.debug("RF_data has undergone logarithmic compression")
     return RFarray_equalized
