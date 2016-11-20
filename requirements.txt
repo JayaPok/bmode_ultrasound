@@ -1,4 +1,3 @@
-os
 matplotlib
 scipy>=0.16.1
 scikit-image
