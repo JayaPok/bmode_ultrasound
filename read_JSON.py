@@ -1,12 +1,15 @@
 import json
+import logging
 
 
 def read_JSON_data(filename):
     try:
         with open(filename, 'r') as f:
             JSON_dict = json.load(f)
+            logging.debug("JSON file opened")
     except FileNotFoundError:
         print("File was not found")
+        logging.error("File was not found")
         raise FileNotFoundError
 
     try:
@@ -15,11 +18,18 @@ def read_JSON_data(filename):
         axial_samples = int(JSON_dict.get("axial_samples"))
         beam_spacing = float(JSON_dict.get("beam_spacing"))
         num_beams = int(JSON_dict.get("num_beams"))
+        logging.info("speed of sound (meters/sec) = " + str(c))
+        logging.info("sampling frequency = " + str(fs))
+        logging.info("number of axial samples = " + str(axial_samples))
+        logging.info("beam spacing (in meters) = " + str(beam_spacing))
+        logging.info("number of beams = " + str(num_beams))
     except TypeError:
         print('One of the expected values was not found')
+        logging.error("One of the expected values is missing")
         raise TypeError
     except ValueError:
         print('One of the expected values is not listed as an integer')
+        logging.error("One of the expected values is not listed as a number")
         raise ValueError
 
     return (c, fs, axial_samples, beam_spacing, num_beams)
