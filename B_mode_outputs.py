@@ -17,7 +17,6 @@ def image_plot(B_mode_array, beam_spacing, axial_samples, num_beams, f_s, c):
     plt.ylabel('Distance (m)')
     logging.debug("B-mode Ultrasound Image is plotted using matplotlib")
     plt.show()
-    return extent_array
 
 
 def image_save(image_filename, B_mode_array):
