@@ -2,10 +2,17 @@ This project, "B-mode Ultrasound Imaging", takes in a binary radiofrequency (RF)
 
 How to Use:
 1. Run the main_B_mode_file.py to run the program with the default data files and values
-2. Can additionaly type --j (filename) for entering custom JSON file, --r (filename) for entering custom RF binary data file, --i (filename) for entering filename to save image to, --display "display" for showing the B-mode image, --save "save" for saving the B-mode image
+2. Can additionaly type the following optional inputs
+--j (JSON filename, string) for entering custom JSON file
+--r (Radio Frequency data filename) for entering custom RF binary data file
+--i (image filename) for entering custom filename to save B-mode image to
+--display (True or False) for showing the B-mode image
+--save (True or False) for saving the B-mode image under the filename provided above with the optinal input argument --i
 
 Contributers:
 Aniruddh Prakash, Jaya Pokuri
+
+
 
 Project License: 
 See LICENSE.txt file
