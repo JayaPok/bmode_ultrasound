@@ -33,7 +33,7 @@ def read_RF(RF_data_filename, axial_samples, num_beams):
                               set(range(0x20, 0x100)) - {0x7f})
         is_binary_string = lambda bytes: bool(bytes.translate(None, textchars))
 
-        if is_binary_string(open(RF_data_filename, 'rb').read(1024)) == False:
+        if not is_binary_string(open(RF_data_filename, 'rb').read(1024)):
             raise NotBinaryFileError
         if axial_samples*num_beams != len(rf_data):
             raise MissingDataError
