@@ -43,14 +43,18 @@
 <dl class="function">
 <dt id="B_mode_image_creation.array_filtering">
 <code class="descclassname">B_mode_image_creation.</code><code class="descname">array_filtering</code><span class="sig-paren">(</span><em>rfdata_bars</em><span class="sig-paren">)</span><a class="headerlink" href="#B_mode_image_creation.array_filtering" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run envelope detection on individual beams using a lowess filter of a 2D numpy array of RF data</p>
+<dd><dl class="docutils">
+<dt>Run envelope detection on individual beams using a</dt>
+<dd>lowess filter of a 2D numpy array of RF data</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rfdata_bars</strong> &#8211; 2D array of RF data of size</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">RF_array_filtered: 2D numpy array of data that has undergone envelope detection</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">RF_array_filtered: 2D numpy array of data that
+has undergone envelope detection</td>
 </tr>
 </tbody>
 </table>
@@ -59,8 +63,11 @@
 <dl class="function">
 <dt id="B_mode_image_creation.equalization">
 <code class="descclassname">B_mode_image_creation.</code><code class="descname">equalization</code><span class="sig-paren">(</span><em>log_RFarray_filtered</em><span class="sig-paren">)</span><a class="headerlink" href="#B_mode_image_creation.equalization" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#8220;Run histogram equalization on a 2D array of RF data that has undergone
-envelope detection and logarithmic compression</p>
+<dd><dl class="docutils">
+<dt>&#8220;Run histogram equalization on a 2D array of RF data</dt>
+<dd>that has undergone</dd>
+</dl>
+<p>envelope detection and logarithmic compression</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -68,7 +75,8 @@ envelope detection and logarithmic compression</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>log_RFarray_filtered</strong> &#8211; 2D numpy array of data that has
 undergone logarithmic compression and envelope detection</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">B_mode_array: completed 2D numpy array of B-mode data that has undergone all image processing</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">B_mode_array: completed 2D numpy array of B-mode data
+that has undergone all image processing</td>
 </tr>
 </tbody>
 </table>
@@ -82,7 +90,8 @@ undergone logarithmic compression and envelope detection</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>RF_array_filtered</strong> &#8211; 2D numpy array of data that has undergone envelope detection</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>RF_array_filtered</strong> &#8211; 2D numpy array of data that has
+undergone envelope detection</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">log_RFarray_filtered: 2D numpy array of data that has</td>
 </tr>
