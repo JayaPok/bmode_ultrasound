@@ -4,7 +4,7 @@ import os
 import pytest
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
+
 
 B_mode_array = np.absolute(np.empty([5, 5]))
 
