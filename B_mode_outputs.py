@@ -30,7 +30,7 @@ def image_plot(B_mode_array, beam_spacing, axial_samples, num_beams, f_s, c):
     plt.show()
 
 
-def image_save(image_filename, B_mode_array):
+def image_save(image_filename, B_mode_array, beam_spacing, axial_samples, num_beams, f_s, c):
     """
 
     :param image_filename: User specified filename to save B-mode image to
@@ -38,7 +38,15 @@ def image_save(image_filename, B_mode_array):
     :return: None
     """
     try:
-        plt.imsave(image_filename, B_mode_array, cmap='Greys_r')
+        lateral_distance = beam_spacing * num_beams
+        depth_distance = c * axial_samples / f_s / 2
+        extent_array = [0, lateral_distance, depth_distance, 0]
+        plt.imshow(B_mode_array, aspect='auto', 
+          extent=extent_array, cmap='Greys_r')
+        plt.title('B-mode Ultrasound Image')
+        plt.xlabel('Depth (m)')
+        plt.ylabel('Distance (m)')
+        plt.savefig(image_filename)
         logging.debug("Image is saved under the filename: " + image_filename)
     except IOError:
         print('There is no more space, please delete something'

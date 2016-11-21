@@ -21,6 +21,6 @@ if __name__ == "__main__":
     log_rf_array_filtered = logarithmic_compression(rf_array_filtered)
     RFarray_equalized = equalization(log_rf_array_filtered)
     if save:
-        image_save(image_filename, RFarray_equalized)
+        image_save(image_filename, RFarray_equalized, beam_spacing, axial_samples, num_beams, fs, c)
     if display:
         image_plot(RFarray_equalized, beam_spacing, axial_samples, num_beams, fs, c)
