@@ -1,5 +1,5 @@
 from read_JSON import read_JSON_data
-from read_RFdata import read_RF, RF_bars
+from read_RFdata import read_RF, RF_bars, MissingDataError, NotBinaryFileError
 from B_mode_image_creation import array_filtering, logarithmic_compression, equalization
 from B_mode_outputs import image_save, image_plot
 from argparse_input import main_args
@@ -21,6 +21,6 @@ if __name__ == "__main__":
     log_rf_array_filtered = logarithmic_compression(rf_array_filtered)
     RFarray_equalized = equalization(log_rf_array_filtered)
     if save:
-        image_save(image_filename, RFarray_equalized)
+        image_save(image_filename, RFarray_equalized, beam_spacing, axial_samples, num_beams, fs, c)
     if display:
         image_plot(RFarray_equalized, beam_spacing, axial_samples, num_beams, fs, c)
