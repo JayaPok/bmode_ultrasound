@@ -3,6 +3,17 @@ import logging
 
 
 def image_plot(B_mode_array, beam_spacing, axial_samples, num_beams, f_s, c):
+    """Calculate Lateral distance and depth of image in meters using data
+    from JSON file and display file using matplotlib
+
+    :param B_mode_array: completed 2D numpy array of B-mode data that has undergone all image processing
+    :param beam_spacing: distance between beams in meters
+    :param axial_samples: # of samples in the axial direction
+    :param num_beams: number of beams
+    :param f_s: sampling frequency in Hz
+    :param c: speed of sound
+    :return: None
+    """
     lateral_distance = beam_spacing * num_beams
     depth_distance = c * axial_samples / f_s / 2
     extent_array = [0, lateral_distance, depth_distance, 0]
@@ -20,6 +31,12 @@ def image_plot(B_mode_array, beam_spacing, axial_samples, num_beams, f_s, c):
 
 
 def image_save(image_filename, B_mode_array):
+    """
+
+    :param image_filename: User specified filename to save B-mode image to
+    :param B_mode_array: completed 2D numpy array of B-mode data that has undergone all image processing
+    :return: None
+    """
     try:
         plt.imsave(image_filename, B_mode_array, cmap='Greys_r')
         logging.debug("Image is saved under the filename: " + image_filename)

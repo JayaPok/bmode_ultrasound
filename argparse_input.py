@@ -2,6 +2,10 @@ import argparse as ap
 
 
 def parse_cli():
+    """Argument Parser
+
+    :return: all arguments included in argument parser
+    """
 
     par = ap.ArgumentParser(formatter_class=ap.ArgumentDefaultsHelpFormatter)
 
@@ -37,7 +41,14 @@ def parse_cli():
 
 
 def main_args():
+    """
 
+    :return: JSON_filename: name of JSON file to be read
+    :return: RF_data_filename: name of binary file to be read
+    :return: image_filename: name of file to save image as
+    :return: display: Boolean input where True displays B-mode image and False does not display
+    :return: save: Boolean input where True saves B-mode image under image_filename
+    """
     args = parse_cli()
     JSON_filename = args.JSON_filename
     RF_data_filename = args.RF_data_filename
