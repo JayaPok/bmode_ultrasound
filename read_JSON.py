@@ -6,7 +6,7 @@ def read_JSON_data(JSON_filename):
     """Import and read JSON file to determine speed of sound,
     sampling frequency, axial samples, beam spacing, and number of beams
 
-    :param JSON_filename: User specified JSON file with parameters for ultrasound image
+    :param JSON_filename: User specified JSON file for ultrasound image data
     :return: c: speed of sound
     :return: fs: sampling frequency in Hz
     :return: axial_samples: # of samples in the axial direction
