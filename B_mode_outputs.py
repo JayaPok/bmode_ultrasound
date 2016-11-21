@@ -43,15 +43,9 @@ def image_save(image_filename, B_mode_array, beam_spacing,
     :param num_beams: number of beams
     :param f_s: sampling frequency in Hz
     :param c: speed of sound
-    :return:
-    """
-    """
-
-    :param image_filename: User specified filename to save B-mode image to
-    :param B_mode_array: completed 2D numpy array of B-mode
-     data that has undergone all image processing
     :return: None
     """
+
     try:
         lateral_distance = beam_spacing * num_beams
         depth_distance = c * axial_samples / f_s / 2
