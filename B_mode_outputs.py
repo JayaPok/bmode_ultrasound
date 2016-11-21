@@ -33,6 +33,18 @@ def image_plot(B_mode_array, beam_spacing, axial_samples, num_beams, f_s, c):
 
 def image_save(image_filename, B_mode_array, beam_spacing,
                axial_samples, num_beams, f_s, c):
+    """Save B-mode image under specified file name
+
+    :param image_filename: User specified filename to save B-mode image to
+    :param B_mode_array: completed 2D numpy array of
+     B-mode data that has undergone all image processing
+    :param beam_spacing: distance between beams in meters
+    :param axial_samples:  # of samples in the axial direction
+    :param num_beams: number of beams
+    :param f_s: sampling frequency in Hz
+    :param c: speed of sound
+    :return:
+    """
     """
 
     :param image_filename: User specified filename to save B-mode image to
