@@ -50,7 +50,8 @@ from JSON file and display file using matplotlib</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>B_mode_array</strong> &#8211; completed 2D numpy array of B-mode data that has undergone all image processing</li>
+<li><strong>B_mode_array</strong> &#8211; completed 2D numpy array of
+B-mode data that has undergone all image processing</li>
 <li><strong>beam_spacing</strong> &#8211; distance between beams in meters</li>
 <li><strong>axial_samples</strong> &#8211; # of samples in the axial direction</li>
 <li><strong>num_beams</strong> &#8211; number of beams</li>
@@ -68,18 +69,25 @@ from JSON file and display file using matplotlib</p>
 
 <dl class="function">
 <dt id="B_mode_outputs.image_save">
-<code class="descclassname">B_mode_outputs.</code><code class="descname">image_save</code><span class="sig-paren">(</span><em>image_filename</em>, <em>B_mode_array</em><span class="sig-paren">)</span><a class="headerlink" href="#B_mode_outputs.image_save" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<code class="descclassname">B_mode_outputs.</code><code class="descname">image_save</code><span class="sig-paren">(</span><em>image_filename</em>, <em>B_mode_array</em>, <em>beam_spacing</em>, <em>axial_samples</em>, <em>num_beams</em>, <em>f_s</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#B_mode_outputs.image_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save B-mode image under specified file name</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>image_filename</strong> &#8211; User specified filename to save B-mode image to</li>
-<li><strong>B_mode_array</strong> &#8211; completed 2D numpy array of B-mode data that has undergone all image processing</li>
+<li><strong>B_mode_array</strong> &#8211; completed 2D numpy array of
+B-mode data that has undergone all image processing</li>
+<li><strong>beam_spacing</strong> &#8211; distance between beams in meters</li>
+<li><strong>axial_samples</strong> &#8211; # of samples in the axial direction</li>
+<li><strong>num_beams</strong> &#8211; number of beams</li>
+<li><strong>f_s</strong> &#8211; sampling frequency in Hz</li>
+<li><strong>c</strong> &#8211; speed of sound</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
 </td>
 </tr>
 </tbody>
