@@ -16,5 +16,6 @@ Packages Utilized:
 3. pytest - allows for testing exceptions and errors in test cases
 4. statsmodels - enables envelope detection with lowess filters
 5. matplotlib - enables plotting and showing of B-mode image to user
-6. skimage - enables histogram equalization
+6. scikit-image - enables histogram equalization
 7. logging - allows for logging of information with timestamps into the Logging_file.txt file
+8. os - allows for using operating system dependent functionaity
