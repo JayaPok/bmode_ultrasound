@@ -1,10 +1,9 @@
-from B_mode_outputs import image_save, image_plot
+import matplotlib
+matplotlib.use('Agg')
+from B_mode_outputs import image_save
 import numpy as np
 import os
 import pytest
-import matplotlib
-matplotlib.use('Agg')
-
 
 B_mode_array = np.absolute(np.empty([5, 5]))
 
