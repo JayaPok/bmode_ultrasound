@@ -37,7 +37,7 @@ def read_RF(RF_data_filename, axial_samples, num_beams):
             raise NotBinaryFileError
         if axial_samples*num_beams != len(rf_data):
             raise MissingDataError
-        logging.debug("RF_data has been split into rows")
+        logging.debug("RF_data has been read")
         return rf_data
     except MissingDataError:
         print('Not enough data values available.')
