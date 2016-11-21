@@ -5,10 +5,12 @@ import logging
 
 
 def array_filtering(rfdata_bars):
-    """Run envelope detection on individual beams using a lowess filter of a 2D numpy array of RF data
+    """Run envelope detection on individual beams using a
+     lowess filter of a 2D numpy array of RF data
 
     :param rfdata_bars: 2D array of RF data of size
-    :return: RF_array_filtered: 2D numpy array of data that has undergone envelope detection
+    :return: RF_array_filtered: 2D numpy array of data that
+     has undergone envelope detection
     """
     RF_array_abs = np.absolute(rfdata_bars)
     RF_array_T = np.transpose(RF_array_abs)
@@ -24,7 +26,8 @@ def array_filtering(rfdata_bars):
 def logarithmic_compression(RF_array_filtered):
     """Run logarithmic compression on a 2D numpy array of RF data
 
-    :param RF_array_filtered: 2D numpy array of data that has undergone envelope detection
+    :param RF_array_filtered: 2D numpy array of data that has
+     undergone envelope detection
     :return: log_RFarray_filtered: 2D numpy array of data that has
     undergone logarithmic compression and envelope detection
     """
@@ -37,14 +40,17 @@ def logarithmic_compression(RF_array_filtered):
 
 
 def equalization(log_RFarray_filtered):
-    """"Run histogram equalization on a 2D array of RF data that has undergone
+    """"Run histogram equalization on a 2D array of RF data
+     that has undergone
     envelope detection and logarithmic compression
 
     :param log_RFarray_filtered: 2D numpy array of data that has
      undergone logarithmic compression and envelope detection
-    :return: B_mode_array: completed 2D numpy array of B-mode data that has undergone all image processing
+    :return: B_mode_array: completed 2D numpy array of B-mode data
+     that has undergone all image processing
     """
-    B_mode_array = np.empty([len(log_RFarray_filtered), len(log_RFarray_filtered[0])])
+    B_mode_array = np.empty([len(log_RFarray_filtered),
+                             len(log_RFarray_filtered[0])])
     for i in range(len(log_RFarray_filtered[0])-1):
         ind = np.where(~np.isnan(log_RFarray_filtered[:, i]))[0]
         first, last = ind[0], ind[-1]

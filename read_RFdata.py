@@ -16,7 +16,8 @@ def read_RF(RF_data_filename, axial_samples, num_beams):
     :param RF_data_filename: User specified binary file containing RF data
     :param axial_samples: # of samples in the axial direction
     :param num_beams: number of beams
-    :return: rf_data: imported radio frequency data as a single array of integers
+    :return: rf_data: imported radio frequency data as a
+     single array of integers
     """
     try:
         f = open(RF_data_filename, "rb")
@@ -53,7 +54,8 @@ def RF_bars(rf_data, num_beams):
 
     :param rf_data: imported radio frequency data as a single array of integers
     :param num_beams: number of beams
-    :return: rfdata_bars: 2D array of RF data of size (number of beams by number of axial samples)
+    :return: rfdata_bars: 2D array of RF data of size (number
+     of beams by number of axial samples)
     """
     rfdata_bars = np.split(rf_data, num_beams)
     logging.debug("RF_data has been split into rows")
